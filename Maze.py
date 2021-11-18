@@ -32,6 +32,10 @@ class Maze:
                     self.exit = True
             width = self.width
             pygame.display.flip()
+    
+    def LegalMove(self, x):
+        
+        return False
 
     pygame.quit()
 
