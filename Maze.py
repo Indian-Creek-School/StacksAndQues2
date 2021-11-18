@@ -21,6 +21,10 @@ class Maze:
             width = self.width
             pygame.draw.line(self.screen, (255, 255, 255), (width, 3*width/4), (3*width/4, 3*width/4), 4)
             pygame.display.flip()
+    
+    def LegalMove(self, x):
+        
+        return False
 
     pygame.quit()
 
