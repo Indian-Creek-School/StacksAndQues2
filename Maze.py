@@ -13,32 +13,32 @@ class Maze:
         
     
     def drawBorder(self):
-        while not self.exit:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    self.exit = True
-            self.screen.fill((0, 0, 0))
-            width = self.width
-            pygame.draw.line(self.screen, (255, 255, 255), (0,0), (width, 0), 20)
-            pygame.draw.line(self.screen, (255, 255, 255), (0,0), (0, width), 20)
-            pygame.draw.line(self.screen, (255, 255, 255), (0,width), (width, width), 20)
-            pygame.draw.line(self.screen, (255, 255, 255), (width,width), (width, 0), 20)
-            pygame.display.flip()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.exit = True
+        self.screen.fill((0, 0, 0))
+        width = self.width
+        pygame.draw.line(self.screen, (255, 255, 255), (0,0), (width, 0), 20)
+        pygame.draw.line(self.screen, (255, 255, 255), (0,0), (0, width), 20)
+        pygame.draw.line(self.screen, (255, 255, 255), (0,width), (width, width), 20)
+        pygame.draw.line(self.screen, (255, 255, 255), (width,width), (width, 0), 20)
+        pygame.display.flip()
 
     def drawPath(self):
-        while not self.exit:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    self.exit = True
-            width = self.width
-            pygame.display.flip()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.exit = True
+        width = self.width
+        pygame.draw.line(self.screen, (255,0,0), (0,0), (width, width/2), 20)
+        pygame.display.flip()
     
     def LegalMove(self, x):
-        
         return False
 
     pygame.quit()
 
 if __name__ == '__main__':
     maze = Maze()
-    maze.drawBorder()
+    while not maze.exit:
+        maze.drawBorder()
+        maze.drawPath()
