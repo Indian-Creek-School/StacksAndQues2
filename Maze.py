@@ -11,7 +11,7 @@ class Maze:
         self.height = 900
         self.screen = pygame.display.set_mode((self.width, self.height))
         self.exit = False
-        self.lengths = [0, random.randint(50,300), random.randint(100,300), random.randint(75,200), random.randint(30,50), random.randint(30,50), random.randint(30,50), random.randint(30,50), random.randint(30,50), random.randint(30,50), random.randint(30,50),]
+        self.lengths = [0, random.randint(50,300), random.randint(100,300), random.randint(75,200), random.randint(100,400), random.randint(30,50), random.randint(30,50), random.randint(30,50), random.randint(30,50), random.randint(30,50), random.randint(30,50),]
         self.prevX = 0
         self.prevY = 40
     
