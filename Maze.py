@@ -11,8 +11,9 @@ class Maze:
         self.height = 900
         self.screen = pygame.display.set_mode((self.width, self.height))
         self.exit = False
-        self.line1 = []
-        
+        self.lengths = [0, random.randint(50,300), random.randint(100,300), random.randint(75,200), random.randint(30,50), random.randint(30,50), random.randint(30,50), random.randint(30,50), random.randint(30,50), random.randint(30,50), random.randint(30,50),]
+        self.prevX = 0
+        self.prevY = 40
     
     def drawBorder(self):
         for event in pygame.event.get():
@@ -25,24 +26,18 @@ class Maze:
         pygame.draw.line(self.screen, (255, 255, 255), (0,width), (width, width), 20)
         pygame.draw.line(self.screen, (255, 255, 255), (width,width), (width, 0), 20)
 
-    def findPath(self):
-        width = self.width
-        flip = False
-        x1 = 0
-        y1 = 40
-        x2 = 0
-        y2 = 0
-        if flip == False:
-            x2 = random.randint(x1 ,x1+20)
-            y2=y1
-            line1 = [self.screen, (255, 0, 0), (x1,y1), (x2, y2), 20]
-            self.line1.append(line1)
-            x1= x2
-            y1 = y2
-            flip = True
-
     def drawPath(self):
-        print(self.line1)
+        self.drawLine(self.prevX, self.prevY, 1,0)
+        self.drawLine(self.prevX, self.prevY, 0,2)
+        self.drawLine(self.prevX, self.prevY, 3,0)
+
+
+    def drawLine(self, x1, y1, lenx, leny):
+        x2 = x1+self.lengths[lenx]
+        y2 = y1+self.lengths[leny]
+        pygame.draw.line(self.screen, (255,0,0), (x1,y1), (x2,y2), 20)
+        self.prevX = x2
+        self.prevY = y2
     
     def LegalMove(self, x):
         return False
