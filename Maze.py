@@ -30,6 +30,9 @@ class Maze:
         self.drawLine(self.prevX, self.prevY, 1,0)
         self.drawLine(self.prevX, self.prevY, 0,2)
         self.drawLine(self.prevX, self.prevY, 3,0)
+        self.drawLine(self.prevX, self.prevY, 0,4)
+        self.drawLine(self.prevX, self.prevY, 5,0)
+        self.drawLine(self.prevX, self.prevY, 0,6)
 
 
     def drawLine(self, x1, y1, lenx, leny):
