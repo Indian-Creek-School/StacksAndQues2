@@ -3,6 +3,8 @@ from math import sin, radians, degrees, copysign
 from pygame.math import Vector2
 import random
 
+from maze_generator import Cell
+
 class Maze:
     def __init__(self):
         pygame.init()
