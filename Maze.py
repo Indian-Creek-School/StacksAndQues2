@@ -19,7 +19,7 @@ class Maze:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.exit = True
-        #self.screen.fill((0, 0, 0))
+        
         width = self.width
         pygame.draw.line(self.screen, (255, 255, 255), (0,0), (width, 0), 20)
         pygame.draw.line(self.screen, (255, 255, 255), (0,0), (0, width), 20)
@@ -49,7 +49,8 @@ class Maze:
 if __name__ == '__main__':
     maze = Maze()
     while not maze.exit:
-        maze.drawBorder()
         maze.drawPath()
+        maze.drawBorder()
         pygame.display.flip()
+    
 
