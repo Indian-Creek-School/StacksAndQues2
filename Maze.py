@@ -19,7 +19,7 @@ class Maze:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.exit = True
-        self.screen.fill((0, 0, 0))
+        #self.screen.fill((0, 0, 0))
         width = self.width
         pygame.draw.line(self.screen, (255, 255, 255), (0,0), (width, 0), 20)
         pygame.draw.line(self.screen, (255, 255, 255), (0,0), (0, width), 20)
@@ -33,7 +33,6 @@ class Maze:
         self.drawLine(self.prevX, self.prevY, 0,4)
         self.drawLine(self.prevX, self.prevY, 5,0)
         self.drawLine(self.prevX, self.prevY, 0,6)
-
 
     def drawLine(self, x1, y1, lenx, leny):
         x2 = x1+self.lengths[lenx]
