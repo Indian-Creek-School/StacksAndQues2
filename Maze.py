@@ -43,6 +43,9 @@ class Maze:
     def LegalMove(self, x):
         return False
 
+    def drawMaze(self):
+        c = Cell(0,0)
+
     pygame.quit()
 
 if __name__ == '__main__':
