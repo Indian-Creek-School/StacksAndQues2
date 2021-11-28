@@ -2,7 +2,7 @@ import pygame
 from pygame.math import Vector2
 import random   
 
-lines = []
+# lines = []
 
 class Maze:
 
@@ -16,7 +16,7 @@ class Maze:
         self.exit = False
         self.lengths = [0, random.randint(50,300), random.randint(100,300), random.randint(75,200), random.randint(100,400), random.randint(30,50), random.randint(200,400), random.randint(100,275), random.randint(50,300), random.randint(90,150), 700]
         self.prevX = 0
-        self.prevY = 40
+        self.prevY = 0
     
     def drawBorder(self):
         for event in pygame.event.get():
@@ -49,30 +49,82 @@ class Maze:
             self.drawLine(self.prevX, self.prevY, 9,0)
             self.drawLine(self.prevX, self.prevY, 0,10)
         elif rotate == 90:
-            self.drawReflect(self.prevY, self.prevX, 0,1)
-            self.drawReflect(self.prevY, self.prevX, 2,0)
-            self.drawReflect(self.prevY, self.prevX, 0,3)
-            self.drawReflect(self.prevY, self.prevX, 4,0)
-            self.drawReflect(self.prevY, self.prevX, 0,5)
-            self.drawReflect(self.prevY, self.prevX, 6,0)
-            self.drawReflect(self.prevY, self.prevX, 0,7)
-            self.drawReflect(self.prevY, self.prevX, 8,0)
-            self.drawReflect(self.prevY, self.prevX, 0,9)
-            self.drawReflect(self.prevY, self.prevX, 10,0)
-
-        
+            self.rotate90(self.prevX, self.prevY, 1,0)
+            self.rotate90(self.prevX, self.prevY, 0,2)
+            self.rotate90(self.prevX, self.prevY, 3,0)
+            self.rotate90(self.prevX, self.prevY, 0,4)
+            self.rotate90(self.prevX, self.prevY, 5,0)
+            self.rotate90(self.prevX, self.prevY, 0,6)
+            self.rotate90(self.prevX, self.prevY, 7,0)
+            self.rotate90(self.prevX, self.prevY, 0,8)
+            self.rotate90(self.prevX, self.prevY, 9,0)
+            self.rotate90(self.prevX, self.prevY, 0,10)
+        elif rotate == 180:
+            self.rotate180(self.prevX, self.prevY, 1,0)
+            self.rotate180(self.prevX, self.prevY, 0,2)
+            self.rotate180(self.prevX, self.prevY, 3,0)
+            self.rotate180(self.prevX, self.prevY, 0,4)
+            self.rotate180(self.prevX, self.prevY, 5,0)
+            self.rotate180(self.prevX, self.prevY, 0,6)
+            self.rotate180(self.prevX, self.prevY, 7,0)
+            self.rotate180(self.prevX, self.prevY, 0,8)
+            self.rotate180(self.prevX, self.prevY, 9,0)
+            self.rotate180(self.prevX, self.prevY, 0,10)
+        elif rotate == 270:
+            self.rotate270(self.prevX, self.prevY, 1,0)
+            self.rotate270(self.prevX, self.prevY, 0,2)
+            self.rotate270(self.prevX, self.prevY, 3,0)
+            self.rotate270(self.prevX, self.prevY, 0,4)
+            self.rotate270(self.prevX, self.prevY, 5,0)
+            self.rotate270(self.prevX, self.prevY, 0,6)
+            self.rotate270(self.prevX, self.prevY, 7,0)
+            self.rotate270(self.prevX, self.prevY, 0,8)
+            self.rotate270(self.prevX, self.prevY, 9,0)
+            self.rotate270(self.prevX, self.prevY, 0,10)
+        elif rotate == 360:
+            self.rotate360(self.prevX, self.prevY, 1,0)
+            self.rotate360(self.prevX, self.prevY, 0,2)
+            self.rotate360(self.prevX, self.prevY, 3,0)
+            self.rotate360(self.prevX, self.prevY, 0,4)
+            self.rotate360(self.prevX, self.prevY, 5,0)
+            self.rotate360(self.prevX, self.prevY, 0,6)
+            self.rotate360(self.prevX, self.prevY, 7,0)
+            self.rotate360(self.prevX, self.prevY, 0,8)
+            self.rotate360(self.prevX, self.prevY, 9,0)
+            self.rotate360(self.prevX, self.prevY, 0,10)
 
     def drawLine(self, x1, y1, lenx, leny):
         x2 = x1+self.lengths[lenx]
         y2 = y1+self.lengths[leny]
-        pygame.draw.line(self.screen, (255,0,0), (x1,y1), (x2,y2), 20)
+        pygame.draw.line(self.screen, (0,255,0), (x1,y1), (x2,y2), 20)
         self.prevX = x2
         self.prevY = y2
 
-    def drawReflect(self, x1, y1, lenx,leny):
+    def rotate90(self, x1, y1, lenx,leny):
+        x2 = x1+self.lengths[lenx]
+        y2 = y1-self.lengths[leny]
+        pygame.draw.line(self.screen, (165,42,42), (x1,y1), (x2,y2), 20)
+        self.prevX = x2
+        self.prevY = y2
+    
+    def rotate180(self,x1,y1,lenx,leny):
+        x2 = x1-self.lengths[lenx]
+        y2 = y1-self.lengths[leny]
+        pygame.draw.line(self.screen, (165,42,42), (x1,y1), (x2,y2), 20)
+        self.prevX = x2
+        self.prevY = y2
+
+    def rotate270(self, x1, y1, lenx, leny):
+        x2 = x1-self.lengths[lenx]
+        y2 = y1+self.lengths[leny]
+        pygame.draw.line(self.screen, (165,42,42), (x1,y1), (x2,y2), 20)
+        self.prevX = x2
+        self.prevY = y2
+    
+    def rotate360(self, x1, y1, lenx, leny):
         x2 = x1+self.lengths[lenx]
         y2 = y1+self.lengths[leny]
-        pygame.draw.line(self.screen, (255,0,0), (x1,y1), (x2,y2), 20)
+        pygame.draw.line(self.screen, (165,42,42), (x1,y1), (x2,y2), 20)
         self.prevX = x2
         self.prevY = y2
     
@@ -96,13 +148,42 @@ class Maze:
 #         line2 = self.rect.move(20.0,20.0)
 #         screen.blit(self.image, line2)
 
-
 if __name__ == '__main__':
     maze = Maze()
+    count = 0
+    rand = random.randrange(0,maze.width/2,20)
+    rand2 = random.randrange(0,maze.width/2,20)
+    rand3 = random.randrange(0,maze.width/2,20)
+    rand4 = random.randrange(maze.width/2,maze.width,20)
+    rand5 = random.randrange(maze.width/2,maze.width,20)
+    rand6 = random.randrange(maze.width/2,maze.width,20)
     while not maze.exit:
         maze.drawBorder()
+        maze.drawPath(rand, maze.width, 90)
+        maze.drawPath(maze.width, rand, 180)
+        maze.drawPath(0, rand, 360)
+
+        maze.drawPath(rand2, maze.width, 90)
+        maze.drawPath(maze.width, rand2, 180)
+        maze.drawPath(0, rand2, 360)
+
+        maze.drawPath(rand3, maze.width, 90)
+        maze.drawPath(maze.width, rand3, 180)
+        maze.drawPath(0, rand3, 360)
+
+        maze.drawPath(rand4, maze.width, 90)
+        maze.drawPath(maze.width, rand4, 180)
+        maze.drawPath(0, rand4, 360)
+
+        maze.drawPath(rand5, maze.width, 90)
+        maze.drawPath(maze.width, rand5, 180)
+        maze.drawPath(0, rand5, 360)
+
+        maze.drawPath(rand6, maze.width, 90)
+        maze.drawPath(maze.width, rand6, 180)
+        maze.drawPath(0, rand6, 360)
+
         maze.drawPath(0, 40)
-        maze.drawPath(0, 40, 90)
         pygame.display.flip()
     
 
