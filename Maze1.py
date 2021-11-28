@@ -2,6 +2,9 @@ import pygame
 from pygame.math import Vector2
 import random
 
+class Line:
+    def __init__(self):
+        
 
 class Maze:
     def __init__(self):
@@ -25,13 +28,14 @@ class Maze:
         pygame.draw.line(self.screen, (255, 255, 255), (0,width), (width, width), 20)
         pygame.draw.line(self.screen, (255, 255, 255), (width,width), (width, 0), 20)
 
-    def drawPath(self):
-        self.drawLine(self.prevX, self.prevY, 1,0)
-        self.drawLine(self.prevX, self.prevY, 0,2)
-        self.drawLine(self.prevX, self.prevY, 3,0)
-        self.drawLine(self.prevX, self.prevY, 0,4)
-        self.drawLine(self.prevX, self.prevY, 5,0)
-        self.drawLine(self.prevX, self.prevY, 0,6)
+    # def drawPath(self):
+    #     self.drawLine(self.prevX, self.prevY, 1,0)
+    #     self.drawLine(self.prevX, self.prevY, 0,2)
+    #     self.drawLine(self.prevX, self.prevY, 3,0)
+    #     self.drawLine(self.prevX, self.prevY, 0,4)
+    #     self.drawLine(self.prevX, self.prevY, 5,0)
+    #     self.drawLine(self.prevX, self.prevY, 0,6)
+
 
     def drawLine(self, x1, y1, lenx, leny):
         x2 = x1+self.lengths[lenx]
@@ -49,7 +53,7 @@ class Maze:
 if __name__ == '__main__':
     maze = Maze()
     while not maze.exit:
-        maze.drawPath()
+        # maze.drawPath()
         maze.drawBorder()
         pygame.display.flip()
     
