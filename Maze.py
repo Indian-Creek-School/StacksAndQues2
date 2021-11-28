@@ -19,7 +19,6 @@ class Maze:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.exit = True
-        
         width = self.width
         pygame.draw.line(self.screen, (255, 255, 255), (0,0), (width, 0), 20)
         pygame.draw.line(self.screen, (255, 255, 255), (0,0), (0, width), 20)
