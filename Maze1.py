@@ -1,10 +1,6 @@
 import pygame
 from pygame.math import Vector2
-import random
-
-class Line:
-    def __init__(self):
-        
+import random   
 
 class Maze:
     def __init__(self):
@@ -49,6 +45,10 @@ class Maze:
 
 
     pygame.quit()
+
+class Line:
+    def __init__(self, x1, y1, x2, y2, thickness = 20):
+        pygame.sprite.Sprite.__init__(self)
 
 if __name__ == '__main__':
     maze = Maze()
