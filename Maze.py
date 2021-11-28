@@ -50,7 +50,7 @@ class Maze:
 if __name__ == '__main__':
     maze = Maze()
     while not maze.exit:
-        maze.drawBorder()
         maze.drawPath()
+        maze.drawBorder()
         pygame.display.flip()
 
