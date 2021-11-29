@@ -102,28 +102,28 @@ class Maze:
     def rotate90(self, x1, y1, lenx,leny):
         x2 = x1+self.lengths[lenx]
         y2 = y1-self.lengths[leny]
-        pygame.draw.line(self.screen, (165,42,42), (x1,y1), (x2,y2), 20)
+        pygame.draw.line(self.screen, (255,0,0), (x1,y1), (x2,y2), 20)
         self.prevX = x2
         self.prevY = y2
     
     def rotate180(self,x1,y1,lenx,leny):
         x2 = x1-self.lengths[lenx]
         y2 = y1-self.lengths[leny]
-        pygame.draw.line(self.screen, (165,42,42), (x1,y1), (x2,y2), 20)
+        pygame.draw.line(self.screen, (255,0,0), (x1,y1), (x2,y2), 20)
         self.prevX = x2
         self.prevY = y2
 
     def rotate270(self, x1, y1, lenx, leny):
         x2 = x1-self.lengths[lenx]
         y2 = y1+self.lengths[leny]
-        pygame.draw.line(self.screen, (165,42,42), (x1,y1), (x2,y2), 20)
+        pygame.draw.line(self.screen, (255,0,0), (x1,y1), (x2,y2), 20)
         self.prevX = x2
         self.prevY = y2
     
     def rotate360(self, x1, y1, lenx, leny):
         x2 = x1+self.lengths[lenx]
         y2 = y1+self.lengths[leny]
-        pygame.draw.line(self.screen, (165,42,42), (x1,y1), (x2,y2), 20)
+        pygame.draw.line(self.screen, (255,0,0), (x1,y1), (x2,y2), 20)
         self.prevX = x2
         self.prevY = y2
     
@@ -135,14 +135,10 @@ class Maze:
         current_dir = os.path.dirname(os.path.abspath(__file__))
         image_path = os.path.join(current_dir, "turtle.png")
         turtle_image = pygame.image.load(image_path)
-        rotated = pygame.transform.rotate(turtle_image,0)
         while self.screen.get_at((int(t.position.x),int(t.position.y))) == (0,255,0):
             t.xIncrease()
-            self.screen.blit(rotated, t.position)
+            self.screen.blit(turtle_image, t.position)
             print(t.position)
-        
-
-
 
     pygame.quit()
 
