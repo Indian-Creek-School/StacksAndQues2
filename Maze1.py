@@ -5,7 +5,6 @@ from solver import *
 
 class Maze:
 
-
     def __init__(self):
         pygame.init()
         pygame.display.set_caption("Maze")
