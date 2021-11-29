@@ -131,12 +131,12 @@ class Maze:
         return False
 
     def moveTurtle(self):
-        t = solver(0,40)
+        t = solver(0.0,40.0)
         current_dir = os.path.dirname(os.path.abspath(__file__))
         image_path = os.path.join(current_dir, "turtle.png")
         turtle_image = pygame.image.load(image_path)
         rotated = pygame.transform.rotate(turtle_image,0)
-        while self.screen.get_at((int(t.position.x),int(t.position.y))) == (165,42,42):
+        while self.screen.get_at((int(t.position.x),int(t.position.y))) == (0,255,0):
             t.xIncrease()
             self.screen.blit(rotated, t.position)
             print(t.position)
