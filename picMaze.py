@@ -20,5 +20,15 @@ class picMaze:
         pygame.draw.line(self.screen, (255, 255, 255), (0,width), (width, width), 20)
         pygame.draw.line(self.screen, (255, 255, 255), (width,width), (width, 0), 20)
 
-    for pasteMaze(self):
-        
+    def pasteMaze(self):
+        image = pygame.image.load("maze.jpg")
+        self.screen.blit(image, (0, 0))
+
+    pygame.quit()
+
+if __name__ == '__main__':
+    maze = picMaze()
+    while not maze.exit:
+        maze.pasteMaze()
+        pygame.display.flip()
+
