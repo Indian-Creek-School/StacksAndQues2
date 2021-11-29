@@ -128,8 +128,8 @@ class Maze:
         self.prevX = x2
         self.prevY = y2
     
-    # def LegalMove(self, x):
-    #     return False
+    def LegalMove(self, x):
+        return False
 
     pygame.quit()
 
