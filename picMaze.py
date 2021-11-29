@@ -29,6 +29,7 @@ class picMaze:
 if __name__ == '__main__':
     maze = picMaze()
     while not maze.exit:
+        maze.drawBorder()
         maze.pasteMaze()
         pygame.display.flip()
 
