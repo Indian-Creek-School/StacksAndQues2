@@ -10,15 +10,10 @@ class picMaze:
         self.screen = pygame.display.set_mode((self.width, self.height))
         self.exit = False
 
-    def drawBorder(self):
+    def eventQueue(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.exit = True
-        width = self.width
-        pygame.draw.line(self.screen, (255, 255, 255), (0,0), (width, 0), 20)
-        pygame.draw.line(self.screen, (255, 255, 255), (0,0), (0, width), 20)
-        pygame.draw.line(self.screen, (255, 255, 255), (0,width), (width, width), 20)
-        pygame.draw.line(self.screen, (255, 255, 255), (width,width), (width, 0), 20)
 
     def pasteMaze(self):
         image = pygame.image.load("maze.jpg")
@@ -29,7 +24,7 @@ class picMaze:
 if __name__ == '__main__':
     maze = picMaze()
     while not maze.exit:
-        maze.drawBorder()
+        maze.eventQueue()
         maze.pasteMaze()
         pygame.display.flip()
 
