@@ -1,6 +1,5 @@
 import os
 import pygame
-from math import sin, radians, degrees, copysign
 from pygame.math import Vector2
 from collections import deque
 class solver:
