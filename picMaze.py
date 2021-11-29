@@ -1,0 +1,24 @@
+import pygame
+from solver import *
+
+class picMaze:
+    def __init__(self):
+        pygame.init()
+        pygame.display.set_caption("Maze")
+        self.width = 900
+        self.height = 900
+        self.screen = pygame.display.set_mode((self.width, self.height))
+        self.exit = False
+
+    def drawBorder(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.exit = True
+        width = self.width
+        pygame.draw.line(self.screen, (255, 255, 255), (0,0), (width, 0), 20)
+        pygame.draw.line(self.screen, (255, 255, 255), (0,0), (0, width), 20)
+        pygame.draw.line(self.screen, (255, 255, 255), (0,width), (width, width), 20)
+        pygame.draw.line(self.screen, (255, 255, 255), (width,width), (width, 0), 20)
+
+    for pasteMaze(self):
+        
